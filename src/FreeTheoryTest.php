@@ -17,8 +17,6 @@ class FreeTheoryTest extends \TheoryTest\Car\FreeTheoryTest{
         return $this->buildTest();
     }
     
-    
-
     /**
      * Chooses the test questions an inserts them into the session
      * @param int $testNo The current test number
