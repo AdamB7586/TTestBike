@@ -4,7 +4,7 @@ namespace TheoryTest\Bike;
 
 class TheoryTest extends TheoryTest\Car\TheoryTest{
     
-    protected static $testType = 'bike';
+    protected $testType = 'bike';
     
     /**
      * Choose the questions for the test
