@@ -8,7 +8,7 @@ class RandomTest extends TheoryTest{
      * chooses the random questions for the test and inserts them into the database
      * @return boolean If the questions are inserted into the database will return true else returns false
      */
-    protected function chooseQuestions() {        
+    protected function chooseQuestions($testNo) {        
         self::$db->delete($this->progressTable, array('user_id' => $this->getUserID(), 'test_id' => $this->testNo, 'type' => $this->getTestType()));
         $questions = self::$db->query("SELECT * FROM ((SELECT `prim` FROM `".$this->questionsTable."` WHERE `dsacat` = '1' AND `bikequestion` = 'Y' AND `alertcasestudy` IS NULL LIMIT 2)
 UNION (SELECT `prim` FROM `".$this->questionsTable."` WHERE `dsacat` = '2' AND `bikequestion` = 'Y' AND `alertcasestudy` IS NULL LIMIT 3)
