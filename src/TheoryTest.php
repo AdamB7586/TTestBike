@@ -2,7 +2,7 @@
 
 namespace TheoryTest\Bike;
 
-class TheoryTest extends TheoryTest\Car\TheoryTest{
+class TheoryTest extends \TheoryTest\Car\TheoryTest{
     
     protected $testType = 'bike';
     
