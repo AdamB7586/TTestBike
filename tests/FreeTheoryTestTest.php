@@ -2,6 +2,6 @@
 
 namespace TheoryTest\Bike\Tests;
 
-class FreeTheoryTestTest extends \TheoryTest\Tests\FreeTheoryTestTest {
+class FreeTheoryTestTest extends SetUp {
     
 }

@@ -2,6 +2,22 @@
 
 namespace TheoryTest\Bike\Tests;
 
-class DeleteDataTest extends \TheoryTest\Tests\DeleteDataTest {
+use TheoryTest\Bike\DeleteData;
+
+class DeleteDataTest extends SetUp {
+    
+    protected $delete;
+    
+    protected function setUp() {
+        self::$user->login($GLOBALS['LOGIN_EMAIL'], $GLOBALS['LOGIN_PASSWORD']);
+        $this->delete = new DeleteData(self::$db, self::$user);
+    }
+    
+    /**
+     * @covers TheoryTest\Car\DeleteData::deleteData
+     */
+    public function testDeleteData(){
+        $this->markTestIncomplete();
+    }
     
 }

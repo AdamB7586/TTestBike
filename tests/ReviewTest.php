@@ -2,6 +2,6 @@
 
 namespace TheoryTest\Bike\Tests;
 
-class ReviewTest extends \TheoryTest\Tests\ReviewTest{
+class ReviewTest extends SetUp {
     
 }
