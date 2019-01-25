@@ -50,7 +50,7 @@ class FreeTheoryTest extends \TheoryTest\Car\FreeTheoryTest{
             $this->testName = $name;
         }
         else{
-            $this->testName = '<span class="hidden-xs">Free <span class="hidden-md">Motorcycle </span>Theory </span>Test '.$this->getTest();
+            $this->testName = 'Free Motorcycle Theory Test '.$this->getTest();
         }
     }
 }
