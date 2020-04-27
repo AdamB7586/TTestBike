@@ -27,7 +27,7 @@ class FreeTheoryTest extends \TheoryTest\Car\FreeTheoryTest{
             session_name(SESSION_NAME);
             session_start();
         }
-        $questions = $this->db->selectAll($this->questionsTable, array('mocktestbikeno' => $testNo), array('prim'), array('mocktestbikeqposition' => 'ASC'));
+        $questions = $this->db->selectAll($this->questionsTable, ['mocktestbikeno' => $testNo], ['prim'], ['mocktestbikeqposition' => 'ASC']);
         $q = 1;
         foreach($questions as $question){
             $this->questions[$q] = $question['prim'];
