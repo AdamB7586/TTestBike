@@ -6,6 +6,8 @@ class TheoryTest extends \TheoryTest\Car\TheoryTest{
     
     protected $testType = 'bike';
     
+    protected $scriptVar = 'bike';
+    
     /**
      * Choose the questions for the test
      * @param int $testNo This should be the test number you which to get the questions for
