@@ -4,6 +4,7 @@ namespace TheoryTest\Bike;
 
 class FreeTheoryTest extends \TheoryTest\Car\FreeTheoryTest{
     protected $testType = 'bike';
+    protected $scriptVar = 'bikefree';
 
     /**
      * Create a new Theory Test for the test number given

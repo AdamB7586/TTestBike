@@ -3,6 +3,7 @@
 namespace TheoryTest\Bike;
 
 class RandomTest extends TheoryTest{
+    protected $scriptVar = 'bikerandom';
     
     /**
      * chooses the random questions for the test and inserts them into the database
