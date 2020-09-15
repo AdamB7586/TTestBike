@@ -28,14 +28,10 @@ class FreeTheoryTest extends \TheoryTest\Car\FreeTheoryTest{
             session_name(SESSION_NAME);
             session_start();
         }
-        $questions = $this->db->selectAll($this->questionsTable, ['mocktestbikeno' => $testNo], ['prim'], ['mocktestbikeqposition' => 'ASC']);
-        $q = 1;
-        foreach($questions as $question){
-            $this->questions[$q] = $question['prim'];
-            $this->useranswers[$q]['answer'] = '';
-            $this->useranswers[$q]['flagged'] = 0;
-            $this->useranswers[$q]['status'] = 0;
-            $q++;
+        $_SESSION['test'.$testNo.'q'] = serialize($this->questions);
+        $questions = $this->db->selectAll($this->testsTable, ['test' => $testNo], ['prim'], ['position' => 'ASC']);
+        foreach($questions as $i => $question){
+            $this->questions[($i + 1)] = $question['prim'];
         }
         $_SESSION['test'.$testNo.'q'] = serialize($this->questions);
         $_SESSION['test'.$testNo.'a'] = serialize($this->useranswers);
