@@ -2,7 +2,8 @@
 
 namespace TheoryTest\Bike;
 
-class TheoryTest extends \TheoryTest\Car\TheoryTest{
+class TheoryTest extends \TheoryTest\Car\TheoryTest
+{
     
     protected $testType = 'bike';
     
@@ -11,7 +12,8 @@ class TheoryTest extends \TheoryTest\Car\TheoryTest{
     /**
      * Sets the tables
      */
-    protected function setTables() {
+    protected function setTables()
+    {
         parent::setTables();
         $this->testsTable = $this->config->table_bike_theory_tests;
     }

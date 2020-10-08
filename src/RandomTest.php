@@ -2,14 +2,16 @@
 
 namespace TheoryTest\Bike;
 
-class RandomTest extends TheoryTest{
+class RandomTest extends TheoryTest
+{
     protected $scriptVar = 'bikerandom';
     
     /**
      * chooses the random questions for the test and inserts them into the database
      * @return boolean If the questions are inserted into the database will return true else returns false
      */
-    protected function chooseQuestions($testNo = 15) {        
+    protected function chooseQuestions($testNo = 15)
+    {
         $this->db->delete($this->progressTable, ['user_id' => $this->getUserID(), 'test_id' => $this->testNo, 'type' => $this->getTestType()]);
         $questions = $this->db->query("SELECT * FROM ((SELECT `prim` FROM `{$this->questionsTable}` WHERE `dsacat` = '1' AND `bikequestion` = 'Y' AND `alertcasestudy` IS NULL LIMIT 2)
 UNION (SELECT `prim` FROM `{$this->questionsTable}` WHERE `dsacat` = '2' AND `bikequestion` = 'Y' AND `alertcasestudy` IS NULL LIMIT 3)
@@ -28,7 +30,7 @@ UNION (SELECT `prim` FROM `{$this->questionsTable}` WHERE `dsacat` = '14' AND `b
 UNION (SELECT `prim` FROM `{$this->questionsTable}` WHERE `casestudyno` = '".rand(29, 42)."');");
          
         unset($_SESSION['test'.$this->getTest()]);
-        foreach($questions as $q => $question){
+        foreach ($questions as $q => $question) {
             $this->questions[($q + 1)] = $question['prim'];
         }
         return $this->db->insert($this->progressTable, ['user_id' => $this->getUserID(), 'questions' => serialize($this->questions), 'answers' => serialize([]), 'test_id' => $this->testNo, 'started' => date('Y-m-d H:i:s'), 'status' => 0, 'type' => $this->getTestType()]);

@@ -2,7 +2,8 @@
 
 namespace TheoryTest\Bike;
 
-class FreeTheoryTest extends \TheoryTest\Car\FreeTheoryTest{
+class FreeTheoryTest extends \TheoryTest\Car\FreeTheoryTest
+{
     protected $testType = 'bike';
     protected $scriptVar = 'bikefree';
 
@@ -10,7 +11,8 @@ class FreeTheoryTest extends \TheoryTest\Car\FreeTheoryTest{
      * Create a new Theory Test for the test number given
      * @param int $theorytest Should be the test number
      */
-    public function createNewTest($theorytest = 1){
+    public function createNewTest($theorytest = 1)
+    {
         $this->clearCookies($theorytest);
         $this->setTest($theorytest);
         $this->setTestName();
@@ -23,14 +25,15 @@ class FreeTheoryTest extends \TheoryTest\Car\FreeTheoryTest{
      * @param int $testNo The current test number
      * @return boolean Returns true
      */
-    protected function chooseQuestions($testNo){
-        if(!session_id()){
+    protected function chooseQuestions($testNo)
+    {
+        if (!session_id()) {
             session_name(SESSION_NAME);
             session_start();
         }
         $_SESSION['test'.$testNo.'q'] = serialize($this->questions);
         $questions = $this->db->selectAll($this->testsTable, ['test' => $testNo], ['prim'], ['position' => 'ASC']);
-        foreach($questions as $i => $question){
+        foreach ($questions as $i => $question) {
             $this->questions[($i + 1)] = $question['prim'];
         }
         $_SESSION['test'.$testNo.'q'] = serialize($this->questions);
@@ -42,11 +45,11 @@ class FreeTheoryTest extends \TheoryTest\Car\FreeTheoryTest{
      * Sets the Test Name
      * @param string $name Sets the current test name
      */
-    protected function setTestName($name = ''){
-        if(!empty($name)){
+    protected function setTestName($name = '')
+    {
+        if (!empty($name)) {
             $this->testName = $name;
-        }
-        else{
+        } else {
             $this->testName = 'Free Motorcycle Theory Test '.$this->getTest();
         }
     }

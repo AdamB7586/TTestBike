@@ -2,10 +2,11 @@
 
 namespace TheoryTest\Bike\Tests;
 
-class LearnTestTest extends SetUp {
+class LearnTestTest extends SetUp
+{
     
-    public function testExample(){
+    public function testExample()
+    {
         $this->markTestIncomplete();
     }
-    
 }
