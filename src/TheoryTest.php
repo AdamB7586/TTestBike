@@ -15,6 +15,9 @@ class TheoryTest extends \TheoryTest\Car\TheoryTest
     protected function setTables()
     {
         parent::setTables();
-        $this->testsTable = $this->config->table_bike_theory_tests;
+        $this->testsTable = $this->config->table_motorcycle_positions;
+        $this->questionsTable = $this->config->table_motorcycle_questions;
+        $this->learningProgressTable = $this->config->table_motorcycle_progress;
+        $this->progressTable = $this->config->table_motorcycle_test_progress;
     }
 }

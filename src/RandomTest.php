@@ -13,7 +13,7 @@ class RandomTest extends TheoryTest
     protected function chooseQuestions($testNo = 15)
     {
         $this->db->delete($this->progressTable, ['user_id' => $this->getUserID(), 'test_id' => $this->testNo, 'type' => $this->getTestType()]);
-        $questions = $this->db->query("SELECT * FROM ((SELECT `prim` FROM `{$this->questionsTable}` WHERE `dsacat` = '1' AND `bikequestion` = 'Y' AND `alertcasestudy` IS NULL LIMIT 2)
+        $questions = $this->db->query("SELECT * FROM ((SELECT `prim` FROM `{$this->questionsTable}` WHERE `dsacat` = '1' AND `alertcasestudy` IS NULL LIMIT 2)
 UNION (SELECT `prim` FROM `{$this->questionsTable}` WHERE `dsacat` = '2' AND `bikequestion` = 'Y' AND `alertcasestudy` IS NULL LIMIT 3)
 UNION (SELECT `prim` FROM `{$this->questionsTable}` WHERE `dsacat` = '3' AND `bikequestion` = 'Y' AND `alertcasestudy` IS NULL LIMIT 4)
 UNION (SELECT `prim` FROM `{$this->questionsTable}` WHERE `dsacat` = '4' AND `bikequestion` = 'Y' AND `alertcasestudy` IS NULL LIMIT 3)
