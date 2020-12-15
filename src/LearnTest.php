@@ -5,7 +5,9 @@ namespace TheoryTest\Bike;
 class LearnTest extends \TheoryTest\Car\LearnTest
 {
     protected $testType = 'bike';
-    protected $scriptVar = 'bikelearn';
+    
+    protected $categories = ['dvsa' => 'dsacat', 'casestudy' => 'casestudyno'];
+    protected $sortBy = ['dvsa' => 'dsaqposition', 'casestudy' => 'caseqposition'];
     
     public function __construct(\DBAL\Database $db, \Configuration\Config $config, \Smarty $layout, $user, $userID = false, $templateDir = false, $theme = 'bootstrap') {
         parent::__construct($db, $config, $layout, $user, $userID, $templateDir, $theme);
