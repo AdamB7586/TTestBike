@@ -6,8 +6,6 @@ class Review extends \TheoryTest\Car\Review
 {
     public $where = ['alertcasestudy' => 'IS NULL'];
     
-    protected $testType = 'BIKE';
-    
     /**
      * Sets the tables
      */
