@@ -3,9 +3,7 @@
 namespace TheoryTest\Bike;
 
 class LearnTest extends \TheoryTest\Car\LearnTest
-{
-    protected $testType = 'bike';
-    
+{   
     protected $categories = ['dvsa' => 'dsacat', 'casestudy' => 'casestudyno'];
     protected $sortBy = ['dvsa' => 'dsaqposition', 'casestudy' => 'caseqposition'];
     

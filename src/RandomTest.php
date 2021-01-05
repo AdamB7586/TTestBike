@@ -12,7 +12,7 @@ class RandomTest extends TheoryTest
      */
     protected function chooseQuestions($testNo = 15)
     {
-        $this->db->delete($this->progressTable, ['user_id' => $this->getUserID(), 'test_id' => $this->testNo, 'type' => $this->getTestType()]);
+        $this->db->delete($this->progressTable, ['user_id' => $this->getUserID(), 'test_id' => $this->testNo]);
         $questions = $this->db->query("SELECT * FROM ((SELECT `prim` FROM `{$this->questionsTable}` WHERE `dsacat` = '1' AND `alertcasestudy` IS NULL ORDER BY RAND() LIMIT 2)
 UNION (SELECT `prim` FROM `{$this->questionsTable}` WHERE `dsacat` = '2' AND `alertcasestudy` IS NULL ORDER BY RAND() LIMIT 3)
 UNION (SELECT `prim` FROM `{$this->questionsTable}` WHERE `dsacat` = '3' AND `alertcasestudy` IS NULL ORDER BY RAND() LIMIT 4)
@@ -33,6 +33,6 @@ UNION (SELECT `prim` FROM `{$this->questionsTable}` WHERE `casestudyno` = '".ran
         foreach ($questions as $q => $question) {
             $this->questions[($q + 1)] = $question['prim'];
         }
-        return $this->db->insert($this->progressTable, ['user_id' => $this->getUserID(), 'questions' => serialize($this->questions), 'answers' => serialize([]), 'test_id' => $this->testNo, 'started' => date('Y-m-d H:i:s'), 'status' => 0, 'type' => $this->getTestType()]);
+        return $this->db->insert($this->progressTable, ['user_id' => $this->getUserID(), 'questions' => serialize($this->questions), 'answers' => serialize([]), 'test_id' => $this->testNo, 'started' => date('Y-m-d H:i:s'), 'status' => 0]);
     }
 }
